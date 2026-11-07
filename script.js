@@ -1,15 +1,17 @@
+
 const display = document.querySelector("#display");
 const buttons = document.querySelectorAll("button");
 
+//stores calulator startup values
 let currentNumber = "0";
 let firstNumber = null;
 let currentOperator = null;
 let waitingForSecondNumber = false;
-
+//updates the display
 function updateDisplay() {
   display.textContent = currentNumber;
 }
-
+//adds the inputed number to the screen
 function enterNumber(number) {
   if (waitingForSecondNumber === true || currentNumber === "Error") {
     currentNumber = number;
@@ -44,7 +46,7 @@ function calculate(numberOne, numberTwo, operator) {
     return numberOne / numberTwo;
   }
 }
-
+//stores first number and the choses operation
 function chooseOperator(operator) {
   let inputNumber = parseFloat(currentNumber);
 
@@ -71,7 +73,7 @@ function chooseOperator(operator) {
   currentOperator = operator;
   waitingForSecondNumber = true;
 }
-
+//calculates the answer and displays it
 function showAnswer() {
   if (firstNumber === null || currentOperator === null) {
     return;
@@ -92,7 +94,7 @@ function showAnswer() {
 
   updateDisplay();
 }
-
+//ressets everything
 function clearCalculator() {
   currentNumber = "0";
   firstNumber = null;
@@ -101,7 +103,7 @@ function clearCalculator() {
 
   updateDisplay();
 }
-
+//removes the last number from the screen
 function removeLastNumber() {
   if (waitingForSecondNumber === true || currentNumber === "Error") {
     return;
@@ -115,7 +117,7 @@ function removeLastNumber() {
 
   updateDisplay();
 }
-
+//shows error if trying to do an impossible equation
 function showError() {
   currentNumber = "Error";
   firstNumber = null;
@@ -124,7 +126,7 @@ function showError() {
 
   updateDisplay();
 }
-
+//makes it so that when a button is clicked it will do the correct action
 buttons.forEach(function(button) {
   button.addEventListener("click", function() {
     let action = button.dataset.action;

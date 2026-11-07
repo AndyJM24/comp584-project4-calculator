@@ -2,7 +2,6 @@ html {
     box-sizing: border-box;
 }
 
-
 *, *:before, *:after {
     box-sizing: inherit;
 }
@@ -13,12 +12,12 @@ body {
     background-color: #f2f2f2;
     font-family: Arial, Helvetica, sans-serif;
 }
-
+/*main wrapper for the calculator*/
 .wrapper {
     width: 400px;
     margin: 40px auto;
 }
-
+/*calculator display screen*/
 .calculator-screen {
     height: 90px;
     background-color: #000000;
@@ -40,7 +39,7 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 }
-
+/*calculator buttons*/
 .calculator-buttons button {
     height: 90px;
     border: 1px solid #000000;
